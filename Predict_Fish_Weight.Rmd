@@ -1,7 +1,7 @@
 ---
 title: "Weight of Fish"
-author: "Your Name"
-date: "Year 2020"
+author: "Christina Jones"
+date: "Fall 2021"
 output: 
   html_document:
     number_sections: true
@@ -18,6 +18,8 @@ require(tidyverse)
 
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?!-->
 
+Build the best regression model to predict the weight of Perch, Pike and Roach that uses two predictor variables. We are trying to find the best two variable to predict weight of each type of fish. 
+
 ## Build the best regression model you can that predicts the weight of perch
 ## Using only two predictor variables  
 
@@ -26,7 +28,7 @@ require(tidyverse)
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
-#Results
+# Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
 
