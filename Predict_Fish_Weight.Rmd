@@ -249,7 +249,7 @@ basicNN + geom_point()
 basicNN + geom_point()+geom_smooth(method=lm)
 ```
 
-On the Y axis weight is represented and on the x axis length1 is represented. As the length1 increases so does the weight of the Roach. The blue line represents the regression between the two variables. 
+On the Y axis Weight is represented and on the x axis length1 is represented. As the length1 increases so does the weight of the Pike fish. This model is a linear fit as the blue line and the intercepts go along each other more so then the regression line that was represented for Perch. The blue line matches the same for Pike.  
 
 
 ### Numerical Descriptive Results
@@ -272,18 +272,23 @@ library(car)
 subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
 ```
 
+This model using all the variables, Roach fish Weight can better be predicted when using one variable use Width of the fish. When using two variables use Length3 and Width to predict Weight. When using three variables use Length3, Length1 and Width to predict Weight of Pike. 
+
+
+
+
+
 ```{r}
 which.max(summary.out$adjr2)
 ```
 
 ```{r}
-best.model <- lm(Weight~Height+Width,data=Roach)
+best.model <- lm(Weight~Length3+Width,data=Roach)
 summary(best.model)
 fullup=lm(Weight~.,data=select(Roach,-Species))
 ```
 
-Using this model using all the variables, Roach fish Weight can better be predicted when using Width of the fish.
-
+Using this model shows all the variables, Roach fish weight can better be predicted when using Length3 and Width of the fish. 
 
 
 ## Inferential Results
@@ -298,14 +303,14 @@ $H_A$ The models help with predicting the weight of Roach fish.
 anova(fullup,best.model)
 ```
 
-We failed to reject the null hypnosis when the p value is above 0.005. The P value is 00000 which is much larger then 0.005. 
+We failed to reject the null hypnosis when the p value is above 0.005. The P value is 0.7357 which is much larger then 0.005. 
 
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
-Using all the variables to come up the best way to predict the weight of Roach fish. It is concluded the Width is the best predictor for Raoch fish Weight.
+Using all the variables to come up the best way to predict the weight of Roach fish. It is concluded the Width and Length3 is the best predictor for Roach fish Weight.
 
 
 
