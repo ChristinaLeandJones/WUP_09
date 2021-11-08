@@ -64,9 +64,11 @@ basicNN + geom_point()
 basicNN + geom_point() + geom_smooth(method=lm)
 ``` 
 
-On the Y axis weight is represented and on the x axis length1 is represented. As the length1 increases so does the weight of the Perch fish. The blue line represents the regression between the two variables. 
+On the Y axis weight is represented and on the x axis length1 is represented. As the length1 increases so does the weight of the Perch fish.If this were a linear fit that would describe where the line would be. This is not a linear fit the  The blue line would represents the regression between the two variables if this was a linear fit. 
 
 ### Numerical Descriptive Results
+
+<!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
 ```{r}
 library(leaps)
@@ -84,22 +86,37 @@ library(car)
 subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
 ```
 
+This model using all the variables, Perch fish Weight can better be predicted when using one variable use Height of the fish. When using two variables use Height and Width to predict Weight. When using three variables use Length3, Height and Width to predict Weight of Perch. 
+
+
+
 ```{r}
 which.max(summary.out$adjr2)
 ```
+This model shows that line 2 with Height and Width predicts Weight of Perch 
+
+
 ```{r}
 summary.out$which[2,]
 ```
+
+This also shows the best two are Height and Width come as TRUE. 
+
 
 ```{r}
 best.model <- lm(Weight~Height+Width,data=Perch)
 summary(best.model)
 fullup=lm(Weight~.,data=select(Perch,-Species))
+```  
+
+
+```{r}
+anova(fullup,best.model)
 ```
-Using this model using all the variables, Perch fish weight can better be predicted when using Height of the fish. 
+
+The P value of the comparison of Height and Width is 0.879.
 
 
-<!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
 ## Inferential Results
 
@@ -113,15 +130,15 @@ $H_A$ The models help with predicting the weight of Perches.
 ```{r}
 anova(fullup,best.model)
 ```
-We failed to reject the null hypnosis when the p value is above 0.005. The P value is 0.879 which is much larger then 0.005. 
+We failed to reject the null hypnosis when the p value is above 0.05. The P value is 0.879 which is much larger then 0.005. There is evidence that a prediction of the Weight Of Perch can be determined by Height and Width.  
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
-Using all the variables to come up the best way to predict the weight of Perches. It is concluded the Height is the best predictor for Perches Weight. 
+Using all the variables to come up the best way to predict the weight of Perches. It is concluded the Height and Width is the best predictor for Perches Weight. 
 
-The second fish i will predict is the Pike. 
+#The second fish i will predict weight is the Pike. 
 
 
 ```{r}
@@ -149,7 +166,7 @@ basicNN + geom_point()
 ```{r}
 basicNN + geom_point()+geom_smooth(method=lm)
 ```
-On the Y axis weight is represented and on the x axis length1 is represented. As the length1 increases so does the weight of the Pike. The blue line represents the regression between the two variables. 
+On the Y axis weight is represented and on the x axis length1 is represented. As the length1 increases so does the weight of the Pike. The blue line represents the regression between the two variables when it is a linear fit. 
 
 
 
