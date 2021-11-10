@@ -64,7 +64,7 @@ basicNN + geom_point()
 basicNN + geom_point() + geom_smooth(method=lm)
 ``` 
 
-On the Y axis weight is represented and on the x axis length1 is represented. As the length1 increases so does the weight of the Perch fish.If this were a linear fit that would describe where the line would be. This is not a linear fit, the blue line would represents the regression between the two variables if this was a linear fit. The intercepts do not fall on the line blue line.  
+On the Y axis Weight is represented and on the x axis Length1 is represented. As the Length1 increases so does the weight of the Perch fish.If this were a linear fit that would describe where the line would be. This is not a linear fit, the blue line would represents the regression between the two variables if this was a linear fit. The intercepts do not fall evenly on the blue line.  
 
 ### Numerical Descriptive Results
 
@@ -85,7 +85,7 @@ as.data.frame(summary.out$outmat)
 library(car)
 subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
 ```
-
+This graph shows that the Y axis is the adjusted R squared while the X axis is the subsets. 
 This model using all the variables, Perch fish Weight can better be predicted when using one variable use Height of the fish. When using two variables use Height and Width to predict Weight. When using three variables use Length3, Height and Width to predict Weight of Perch. 
 
 
@@ -108,6 +108,11 @@ summary(best.model)
 fullup=lm(Weight~.,data=select(Perch,-Species))
 ```  
 
+Using the two best variables a linear model was used. The best prediction for weight = -536 + 74.77 * Height + 69.62 * width 
+
+The equation is the best fit for predict the weight of Perch using Height and Weight. 
+
+
 ```{r}
 anova(fullup,best.model)
 ```
@@ -128,13 +133,14 @@ $H_A$ The model helps with predicting the weight of Perches.
 ```{r}
 anova(fullup,best.model)
 ```
+
 We failed to reject the null hypnosis when the p value is above 0.05. The P value is 0.879 which is much larger then 0.005. There is evidence that a prediction of the Weight Of Perch can be determined by Height and Width.  
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
-Using all the variables to come up the best way to predict the weight of Perches. It is concluded the Height and Width is the best predictor for Perches Weight. 
+Using all the variables to come up the best way to predict the weight of Perches. It is concluded the Height and Width is the best predictor for Perches Weight when using two varibles.  
 
  
 ```{r}
