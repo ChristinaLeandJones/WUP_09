@@ -194,7 +194,7 @@ library(car)
 subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
 ```
 
-
+This graph shows that the Y axis is the adjusted R squared while the X axis is the subsets. 
 This model using all the variables, Pike fish Weight can better be predicted when using one variable use Length3 of the fish. When using two variables use Length3 and Length1 to predict Weight. When using three variables use Length3, Length1 and Width to predict Weight of Pike. 
 
 
@@ -207,6 +207,9 @@ best.model <- lm(Weight~Length3+Length1,data=Pike)
 summary(best.model)
 fullup=lm(Weight~.,data=select(Pike,-Species))
 ```
+
+Using the two best variables a linear model was used. The best prediction for weight = -1675.79 + 141.25 * Length3 + -105.64 * Length1 
+
 Using this model shows all the variables, Pike fish weight can better be predicted when using Length3 and Length1 of the fish. 
 
 ## Inferential Results
@@ -277,7 +280,7 @@ as.data.frame(summary.out$outmat)
 library(car)
 subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
 ```
-
+This graph shows that the Y axis is the adjusted R squared while the X axis is the subsets. 
 This model using all the variables, Roach fish Weight can better be predicted when using one variable use Width of the fish. When using two variables use Length3 and Width to predict Weight. When using three variables use Length3, Length1 and Width to predict Weight of Pike. 
 
 
@@ -293,7 +296,7 @@ best.model <- lm(Weight~Length3+Width,data=Roach)
 summary(best.model)
 fullup=lm(Weight~.,data=select(Roach,-Species))
 ```
-
+Using the two best variables a linear model was used. The best prediction for weight = -319.118 + 8.278 * Length3 + 72.30 * Width 
 Using this model shows all the variables, Roach fish weight can better be predicted when using Length3 and Width of the fish. 
 
 
